@@ -8,9 +8,9 @@ let gridContainer = document.getElementById('grid-container');
 
 let clickBoxes = document.getElementById('click-box');
 
-let image1 = document.getElementById('image-1-box');
-let image2 = document.getElementById('image-2-box');
-let image3 = document.getElementById('image-3-box');
+let image1 = document.getElementById('image1');
+let image2 = document.getElementById('image2');
+let image3 = document.getElementById('image3');
 
 const ARRAY_OF_PRODUCTS = [];
 
@@ -48,10 +48,43 @@ let wineGlass = new Product('wine-glass');
 
 console.log(ARRAY_OF_PRODUCTS);
 
+// generate random number for array index
 function selectRandomProduct() {
-  return Math.floor(Math.random * ARRAY_OF_PRODUCTS.length);
+  return Math.floor(Math.random() * ARRAY_OF_PRODUCTS.length);
 }
 
-selectRandomProduct();
+// empty array to hold products currently shown on screen
+const DISPLAYED_IMAGE_ARRAY = [];
 
-console.log(ARRAY_OF_PRODUCTS.length);
+// generate 1st random product
+// add it to the array
+let leftProduct = ARRAY_OF_PRODUCTS[selectRandomProduct()];
+DISPLAYED_IMAGE_ARRAY.push(leftProduct);
+
+// generate 2nd random product
+// check if it matches a product already in the array
+// if it does, generate a new product
+// if not, add it to the array
+let middleProduct = ARRAY_OF_PRODUCTS[selectRandomProduct()];
+while (DISPLAYED_IMAGE_ARRAY.includes(middleProduct)) {
+  middleProduct = ARRAY_OF_PRODUCTS[selectRandomProduct()];
+}
+DISPLAYED_IMAGE_ARRAY.push(middleProduct);
+
+// generate 3rd random product
+// check if it matches a product already in the array
+// if it does, generate a new product
+// if not, add it to the array
+let rightProduct = ARRAY_OF_PRODUCTS[selectRandomProduct()];
+while (DISPLAYED_IMAGE_ARRAY.includes(rightProduct)) {
+  rightProduct = ARRAY_OF_PRODUCTS[selectRandomProduct()];
+}
+DISPLAYED_IMAGE_ARRAY.push(rightProduct);
+
+console.log(DISPLAYED_IMAGE_ARRAY);
+
+// display all 3 products from the array
+image1.src = `${DISPLAYED_IMAGE_ARRAY[0].src}`;
+image2.src = `${DISPLAYED_IMAGE_ARRAY[1].src}`;
+image3.src = `${DISPLAYED_IMAGE_ARRAY[2].src}`;
+
