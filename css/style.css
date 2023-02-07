@@ -13,40 +13,47 @@ main {
   background-color: aliceblue;
 }
 
-.container {
+#grid-container {
   border: 3px groove #aaa;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 120px 180px 60px 180px 120px;
 }
 
-.container header {
+#grid-container header {
   background-color: lightblue;
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
   display: flex;
   align-items: center;
 }
 
 #results-box {
   background-color: pink;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 5;
+  grid-column: 1 / 2;
+  grid-row: 2 / 5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#click-box {
+  grid-column: 2 / 5;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#click-box div {
+  width: 30%;
+  height: 90%;
+}
+
 #image-1-box {
   background-color: darkgrey;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,10 +61,8 @@ main {
 
 #image-2-box {
   background-color: lightsalmon;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,10 +70,8 @@ main {
 
 #image-3-box {
   background-color: darkseagreen;
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,10 +79,8 @@ main {
 
 #empty-box {
   background-color: antiquewhite;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  grid-column: 2 / 5;
+  grid-row: 3 / 4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,21 +88,17 @@ main {
 
 #lorem-box {
   background-color: gold;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-column: 2 / 5;
+  grid-row: 4 / 5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container footer {
+#grid-container footer {
   background-color: paleturquoise;
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 5;
-  grid-row-end: 6;
+  grid-column: 1 / 5;
+  grid-row: 5 / 6;
   display: flex;
   justify-content: center;
   align-items: center;
