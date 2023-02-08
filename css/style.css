@@ -8,8 +8,8 @@ body {
 
 main {
   margin: 30px auto;
-  min-width: 600px;
-  max-width: 80%;
+  width: 960px;
+  height: 960px;
   background-color: aliceblue;
 }
 
@@ -17,16 +17,17 @@ main {
   border: 3px groove #aaa;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 120px 180px 60px 180px 120px;
+  grid-template-rows: 120px 180px 120px 480px 120px;
 }
 
 #grid-container header {
-  background-color: lightblue;
+  background-color: white;
   grid-column: 1 / 5;
   grid-row: 1 / 2;
   display: flex;
   gap: 30px;
   align-items: center;
+  border-bottom: 3px groove #aaa;
 }
 
 #grid-container header img {
@@ -41,13 +42,14 @@ h1 {
 }
 
 #results-box {
-  background-color: pink;
+  background-color: aliceblue;
   grid-column: 1 / 2;
   grid-row: 2 / 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-right: 3px groove #aaa;
 }
 
 #results-button {
@@ -65,12 +67,12 @@ h1 {
 
 #results-box ul {
   max-width: 90%;
-  max-height: 70%;
+  max-height: 90%;
   list-style-type: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: darkgreen;
-  overflow: scroll;
+  overflow: auto;
 }
 
 ul li {
@@ -92,12 +94,12 @@ ul li {
 }
 
 #click-box div img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 #image-1-box {
-  background-color: darkgrey;
+  background-color: coral;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: flex;
@@ -106,7 +108,7 @@ ul li {
 }
 
 #image-2-box {
-  background-color: lightsalmon;
+  background-color: coral;
   grid-column: 3 / 4;
   grid-row: 2 / 3;
   display: flex;
@@ -115,7 +117,7 @@ ul li {
 }
 
 #image-3-box {
-  background-color: darkseagreen;
+  background-color: coral;
   grid-column: 4 / 5;
   grid-row: 2 / 3;
   display: flex;
@@ -124,7 +126,7 @@ ul li {
 }
 
 #instructions-box {
-  background-color: antiquewhite;
+  background-color: aliceblue;
   grid-column: 2 / 5;
   grid-row: 3 / 4;
   display: flex;
@@ -132,18 +134,30 @@ ul li {
   justify-content: space-around;
   align-items: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: darkgreen;
+  border-top: 3px groove #aaa;
+  border-bottom: 3px groove #aaa;
 }
 
 #lorem-box {
-  background-color: gold;
+  background-color: aliceblue;
   grid-column: 2 / 5;
   grid-row: 4 / 5;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  overflow: auto;
+}
+
+#sagan p {
+  padding: 5px;
+}
+
+#bar-chart {
+  width: 95%;
+  position: absolute center center;
+  z-index: -1;
 }
 
 #grid-container footer {
@@ -156,4 +170,5 @@ ul li {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1rem;
   color: darkblue;
+  border-top: 3px groove #aaa;
 }
