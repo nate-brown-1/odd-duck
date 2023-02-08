@@ -16,7 +16,7 @@ let image2 = document.getElementById('image2');
 let image3 = document.getElementById('image3');
 
 let roundsComplete = 0;
-let roundsAllowed = 15;
+let roundsAllowed = 25;
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
