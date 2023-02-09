@@ -18,6 +18,8 @@ let image3 = document.getElementById('image3');
 let roundsComplete = 0;
 let roundsAllowed = 25;
 
+let totalLikes = 0;
+
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
   this.src = `img/${name}.${fileExtension}`;
@@ -45,27 +47,31 @@ let unicorn = new Product('unicorn');
 let waterCan = new Product('water-can');
 let wineGlass = new Product('wine-glass');
 
-const ARRAY_OF_PRODUCTS = [
-  bag,
-  banana,
-  bathroom,
-  boots,
-  breakfast,
-  bubblegum,
-  chair,
-  cthulhu,
-  dogDuck,
-  dragon,
-  pen,
-  petSweep,
-  scissors,
-  shark,
-  sweep,
-  tauntaun,
-  unicorn,
-  waterCan,
-  wineGlass
-];
+let ARRAY_OF_PRODUCTS = [];
+
+function createProductArray() {
+  ARRAY_OF_PRODUCTS = [
+    bag,
+    banana,
+    bathroom,
+    boots,
+    breakfast,
+    bubblegum,
+    chair,
+    cthulhu,
+    dogDuck,
+    dragon,
+    pen,
+    petSweep,
+    scissors,
+    shark,
+    sweep,
+    tauntaun,
+    unicorn,
+    waterCan,
+    wineGlass
+  ];
+}
 
 // console.log(ARRAY_OF_PRODUCTS);
 
@@ -130,7 +136,7 @@ function renderProducts() {
 }
 
 // invoke function to display 1st set of products on initial page load
-renderProducts();
+// renderProducts();
 
 // event handler for clicks
 function handleProductClick(event) {
@@ -163,6 +169,30 @@ let ARRAY_OF_NAMES = [];
 let ARRAY_OF_LIKES = [];
 let ARRAY_OF_VIEWS = [];
 
+function saveProducts() {
+  let stringifyProducts = JSON.stringify(ARRAY_OF_PRODUCTS);
+  // console.log(stringifyProducts);
+  localStorage.setItem('productArrayLocalStorage', stringifyProducts);
+}
+
+// check local storage for previous results
+// if it exists, redefine the product array
+// if not, run first page load as normal
+function checkStorage() {
+  let checkLocalStorage = localStorage.getItem('productArrayLocalStorage');
+  if (checkLocalStorage) {
+    // console.log(checkLocalStorage);
+    ARRAY_OF_PRODUCTS = JSON.parse(checkLocalStorage);
+    // console.log(ARRAY_OF_PRODUCTS);
+    renderProducts();
+  } else {
+    createProductArray();
+    renderProducts();
+  }
+}
+
+checkStorage();
+
 function renderResults() {
   let results = document.querySelector('ul');
   for (let i = 0; i < ARRAY_OF_PRODUCTS.length; i++) {
@@ -177,6 +207,10 @@ function renderResults() {
     ARRAY_OF_LIKES.push(ARRAY_OF_PRODUCTS[i].likes);
     ARRAY_OF_VIEWS.push(ARRAY_OF_PRODUCTS[i].views);
   }
+  for (let i = 0; i < ARRAY_OF_PRODUCTS.length; i++) {
+    totalLikes += (ARRAY_OF_PRODUCTS[i].likes);
+  }
+  console.log(totalLikes);
   const data = {
     labels: ARRAY_OF_NAMES,
     datasets: [
@@ -209,4 +243,6 @@ function renderResults() {
   };
   let canvasChart = document.getElementById('bar-chart');
   const productChart = new Chart(canvasChart, config);
+  // call function to save product array data in local storage
+  saveProducts();
 }
