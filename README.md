@@ -9,4 +9,4 @@ odd-duck.png
 
 lighthouse screenshot
 
-![Lab 12 Lighthouse Screenshot](img/lighthouse-screenshot-lab12.png)
+![Lab 13 Lighthouse Screenshot](img/lighthouse-screenshot-lab13.png)
